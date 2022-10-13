@@ -1,7 +1,8 @@
 # Assigning paths to variables
-$pre_bak = Read-Host "What folder do you want to backup?"
-$post_bak = Read-Host "Where do you want to place the backup?"
-
+param(
+    [parameter(Mandatory)][string]$pre_bak,
+    [parameter(Mandatory)][string]$post_bak
+)
 
 # Compression of folder
 Compress-Archive $pre_bak $post_bak
