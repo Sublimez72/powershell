@@ -1,4 +1,4 @@
-# Scrpt to create new file
+# Script to create new file
 
 param(
     [parameter(mandatory)]$path)
