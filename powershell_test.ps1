@@ -6,6 +6,15 @@ Write-Host "3: Disable a domain user"
 $choice = Read-Host "Choice"
 
 if ($choice -eq "1"){
+    $c = New-PSSession -ComputerName SERVER19DC01.iths.local -Credential iths\admin
+    $EXIT = 0
+    while ($EXIT -ine 1) {
+        $COMMAND = Read-Host "What command do you want to run?"
+        if ($COMMAND -eq "q") {
+            $EXIT = 1
+        }
+        Invoke-Command -Session $c -ScriptBlock {$COMMAND}
+    }
     Write-Host "Connecting to domaincontroller"
 }
 elseif ($choice -eq "2"){
